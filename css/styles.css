@@ -1,0 +1,73 @@
+
+/* styles.css - Sweet Scoop Ice Cream */
+:root{
+  --bg:#fffaf2;
+  --muted:#6b6b6b;
+  --accent:#ff7fbf;
+  --accent-2:#ffd27f;
+  --card:#ffffffaa;
+  --glass: rgba(255,255,255,0.6);
+}
+*{box-sizing:border-box}
+body{font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;margin:0;background:var(--bg);color:#2b2b2b;line-height:1.6}
+.container{max-width:1100px;margin:0 auto;padding:1rem}
+.site-header{background:linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));backdrop-filter: blur(4px);position:sticky;top:0;z-index:40;box-shadow:0 4px 12px rgba(0,0,0,0.05)}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1rem}
+.logo{font-weight:800;color:#222;text-decoration:none;font-size:1.25rem;letter-spacing:0.5px}
+.main-nav{display:flex;gap:0.75rem}
+.main-nav .nav-link{padding:0.5rem 0.75rem;color:var(--muted);text-decoration:none;border-radius:8px;transition:all .25s ease}
+.main-nav .nav-link:hover{background:var(--glass);color:#000;transform:translateY(-3px)}
+.main-nav .nav-link.active{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 6px 18px rgba(255,127,191,0.15)}
+
+/* Hero */
+.hero{position:relative;overflow:hidden}
+.hero-img{width:100%;height:60vh;object-fit:cover;display:block;filter:contrast(1.02) saturate(1.06);transform:scale(1.03);transition:transform 12s linear}
+.hero:hover .hero-img{transform:scale(1.05)}
+.hero-overlay{position:absolute;left:0;top:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:3rem;color:#2b2b2b;text-shadow:0 1px 0 rgba(255,255,255,0.6)}
+.hero-title{font-size:clamp(2rem,4vw,4rem);margin:0 0 .5rem;animation:fadeInUp .9s ease both}
+.hero-sub{max-width:60ch;margin:0 0 1rem;opacity:.95}
+.btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:.7rem 1.1rem;border-radius:12px;text-decoration:none;display:inline-block;box-shadow:0 8px 18px rgba(0,0,0,0.08);transition:transform .2s ease}
+.btn:hover{transform:translateY(-4px)}
+
+/* Story */
+.story{padding:3rem 1rem}
+.story-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+.card{background:var(--card);padding:1rem;border-radius:12px;box-shadow:0 8px 18px rgba(0,0,0,0.06);overflow:hidden;transform:translateY(0);transition:transform .4s cubic-bezier(.2,.9,.3,1),box-shadow .3s}
+.card img{width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:.75rem}
+.card:hover{transform:translateY(-8px);box-shadow:0 18px 28px rgba(0,0,0,0.12)}
+
+/* CTA */
+.cta{background:linear-gradient(90deg, rgba(255,255,255,0.7), rgba(255,255,255,0.5));padding:2rem;margin:2rem 0;border-radius:12px;text-align:center}
+
+/* Menu */
+.flavors-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+.flavor-card{display:flex;flex-direction:column;background:var(--card);border-radius:12px;overflow:hidden;transition:transform .35s,box-shadow .35s}
+.flavor-card img{width:100%;height:220px;object-fit:cover}
+.flavor-body{padding:1rem}
+.price{font-weight:700;color:var(--muted)}
+
+/* Services */
+.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+.service img{width:100%;height:200px;object-fit:cover;border-radius:8px;display:block;margin-bottom:.5rem}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 320px;gap:1rem;align-items:start}
+.contact-form{display:flex;flex-direction:column;gap:.6rem;background:var(--card);padding:1rem;border-radius:12px}
+.contact-form label{display:flex;flex-direction:column;font-weight:600}
+.contact-form input, .contact-form textarea{padding:.6rem;border-radius:8px;border:1px solid #eee;outline:none;background:rgba(255,255,255,0.8)}
+.contact-form button{margin-top:.5rem}
+
+/* Footer */
+.site-footer{padding:1rem 0;background:transparent;text-align:center;color:var(--muted);font-size:.9rem}
+
+/* Utilities and animations */
+.values-grid, .story-grid{gap:1rem}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.flavor-card:hover{transform:translateY(-8px);box-shadow:0 18px 28px rgba(0,0,0,0.12)}
+/* Responsive */
+@media (max-width:720px){
+  .hero-img{height:50vh}
+  .contact-grid{grid-template-columns:1fr}
+  .site-header .container{padding:0.5rem}
+  .main-nav{display:none}
+}
